@@ -8,9 +8,7 @@
 - OpenJDK-17.0
 - MySQL
 - Insomnia/Postman
-<br>
 <hr>
-<br>
 
 ## Construindo nossa API<br>
 
@@ -19,8 +17,8 @@ A API deve criar, atualizar, deletar e listar usuários, decks e cards. A API te
 Body da requisição:
 ```
 {
-        "email": "lucas@email.com",
-        "password": "senhaLucas"
+        "email": "joao@email.com",
+        "password": "senhaJoao"
     }
 ```
 Em que:
@@ -37,8 +35,8 @@ Deve retornar com body em JSON com um dos códigos a seguir:
 - ### PUT/localhost:8080/user
 ```
 {
-        "email": "lucas@email.com",
-        "password": "senhaLucasNova"
+        "email": "joao@email.com",
+        "password": "senhaJoaoNova"
     }
 ```
 Em que:
@@ -51,19 +49,25 @@ Deve retornar com body em JSON com um dos códigos a seguir:
 **201:** em caso de sucesso com a senha atualizada.<br>
 Obs: O email é a primary key, por este motivo ele não pode ser alterado, somento a coluna password.
 
-- ### DELETE/localhost:8080/email@example.com
+- ### DELETE/localhost:8080/email@example.com: remove o usuário.
 
-Para esta requisição não é necessário corpo JSON, pois o próprio url requisição irá deletar este usuário. 
+Deve aceitar uma requisição com body vazio e retornar 204.
 
-Deve retornar com body em JSON com um dos códigos a seguir:
+- ### GET/localhost:8080/user: retorna estatísticas básicas sobre os usuários criados.
 
-**204:** em caso de sucesso com a exclusão do usuário.<br>
+```
+[
+	{
+		"email": "astrogildo@email.com",
+		"password": "senhaAstrogildo"
+	},
+	{
+		"email": "Joao@email.com",
+		"password": "senhaJoaoNova"
+	}
+]
+```
 
-- ### GET/localhost:8080/user
+A resposta deve conter os códigos a seguir:
 
-Para esta requisição não é necessário corpo JSON, pois o próprio url requisição irá listar todos os usuário salvos no banco. 
-
-Deve retornar com body em JSON com um dos códigos a seguir:
-
-**200:** em caso de sucesso com a lista dos usuarios em JSON.<br>
-<hr>
+**200:** caso a requisição tenha sucesso.
