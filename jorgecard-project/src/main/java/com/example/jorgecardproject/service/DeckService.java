@@ -21,24 +21,24 @@ public class DeckService {
         this.userRepository = userRepository;
     }
 
-    public List<Deck> listarDecksPorUsuario(Integer userId) throws Exception {
-        Optional<User> userOptional = userRepository.findById(userId);
+    public List<Deck> listarDecksPorUsuario(String user_email) throws Exception {
+        Optional<User> userOptional = userRepository.findById(user_email);
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             return deckRepository.findByUser(user);
         } else {
-            throw new Exception("Usuário com ID " + userId + " não encontrado.");
+            throw new Exception("Usuário com ID " + user_email + " não encontrado.");
         }
     }
 
-    public Deck criarDeckParaUsuario(Integer userId, Deck deck) throws Exception {
-        Optional<User> userOptional = userRepository.findById(userId);
+    public Deck criarDeckParaUsuario(String user_email, Deck deck) throws Exception {
+        Optional<User> userOptional = userRepository.findById(user_email);
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             deck.setUser(user);
             return deckRepository.save(deck);
         } else {
-            throw new Exception("Usuário com ID " + userId + " não encontrado.");
+            throw new Exception("Usuário com ID " + user_email + " não encontrado.");
         }
     }
 

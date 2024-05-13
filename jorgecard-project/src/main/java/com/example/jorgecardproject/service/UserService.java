@@ -37,7 +37,7 @@ public class UserService {
 	}
 	
 	//DELETE
-	public Boolean excluirUsuario(Integer id) {
+	public Boolean excluirUsuario(String id) {
 		repository.deleteById(id);
 		return true;
 	}

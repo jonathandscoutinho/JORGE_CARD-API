@@ -18,7 +18,7 @@ public class Deck {
     private Integer id;
     
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_email", nullable = false)
     private User user;
     
     @Column(name = "name", length = 255, nullable = false)

@@ -18,7 +18,7 @@ import com.example.jorgecardproject.service.DeckService;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/user/{userId}/deck")
+@RequestMapping("/user/{user_email}/deck")
 public class DeckController {
 
     private final DeckService deckService;
@@ -28,14 +28,14 @@ public class DeckController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Deck>> listarDecksPorUsuario(@PathVariable Integer userId) throws Exception {
-        List<Deck> decks = deckService.listarDecksPorUsuario(userId);
+    public ResponseEntity<List<Deck>> listarDecksPorUsuario(@PathVariable String user_email) throws Exception {
+        List<Deck> decks = deckService.listarDecksPorUsuario(user_email);
         return ResponseEntity.status(200).body(decks);
     }
 
     @PostMapping
-    public ResponseEntity<Deck> criarDeckParaUsuario(@PathVariable Integer userId, @RequestBody Deck deck) throws Exception {
-        Deck novoDeck = deckService.criarDeckParaUsuario(userId, deck);
+    public ResponseEntity<Deck> criarDeckParaUsuario(@PathVariable String user_email, @RequestBody Deck deck) throws Exception {
+        Deck novoDeck = deckService.criarDeckParaUsuario(user_email, deck);
         return ResponseEntity.status(201).body(novoDeck);
     }
 

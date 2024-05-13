@@ -43,7 +43,7 @@ public class UserController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<?> excluirUsuario (@PathVariable Integer id){
+	public ResponseEntity<?> excluirUsuario (@PathVariable String id){
 		userService.excluirUsuario(id);
 		return ResponseEntity.status(204).build();
 	}

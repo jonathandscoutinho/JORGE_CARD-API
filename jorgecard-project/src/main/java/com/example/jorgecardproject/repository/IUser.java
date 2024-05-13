@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.example.jorgecardproject.model.User;
 
-public interface IUser extends CrudRepository<User, Integer>{
+public interface IUser extends CrudRepository<User, String>{
 
 }
