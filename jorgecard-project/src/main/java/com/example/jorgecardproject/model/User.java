@@ -16,6 +16,12 @@ public class User {
 	
 	@Column(name = "password", length = 255, nullable = false)
 	private String password;
+	
+// constructor for tests	
+//	public User(String email, String password) {
+//		this.email = email;
+//		this.password = password;
+//	}
 
 	public String getEmail() {
 		return email;
